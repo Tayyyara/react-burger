@@ -1,0 +1,10 @@
+.section {
+    display: block;
+    width: 600px;
+    min-height: 800px;
+    background-color: darkslategray;
+}
+
+.tabPanel {
+    display: flex;
+}
