@@ -1,4 +1,18 @@
-.ingridientGroup {
+.ingridientsGroup:first-of-type {
+    margin-top: 40px;
+}
+
+.ingridientsGroupList {
     display: flex;
     flex-wrap: wrap;
+    padding: 24px 16px 8px;
+    /* gap: 24px; */
+    justify-content: space-between;
+    list-style-type: none;
 }
+
+.ingridientsGroupHeading {
+    background-color: darkolivegreen;
+    text-align: left;
+}
+

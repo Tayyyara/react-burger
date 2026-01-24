@@ -1,0 +1,63 @@
+.section {
+    display: block;
+    width: 600px;
+    min-height: 800px;
+    background-color: darkslategray;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    gap: 40px;
+    padding: 0 16px 16px;
+    background-color: darkslategray;
+    height: calc(100vh - 160px);
+    overflow: scroll;
+    
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+    align-items: end;
+    overflow: scroll;
+}
+
+.constructorElementList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-grow: 0;
+    list-style-type: none;
+    overflow: scroll;
+}
+
+.constructorElementItem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+}

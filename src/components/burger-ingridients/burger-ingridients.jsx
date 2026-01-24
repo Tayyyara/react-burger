@@ -10,9 +10,6 @@ function BurgerIngridients () {
     const [current, setCurrent] = React.useState('buns');
     return (
         <section className={styles.section} >
-            <h1>
-                Соберите бургер
-            </h1>
             <div className={styles.tabPanel}>
                 <Tab value="buns" active={current === 'buns'} onClick={setCurrent}>
                     Булки
@@ -24,30 +21,15 @@ function BurgerIngridients () {
                     Начинки
                 </Tab>
             </div>
-            <div>
+            <div className={styles.content}>
                 <IngridientsGroup header={'Булки'}>
-                    {data.map((item) => {
-                        return(
-                            item.type === 'bun' && <IngridientItem image={item.image} price={item.price} name={item.name}/>
-                        )
-                        
-                    })}
+                    {data.map((item) => (item.type === 'bun' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
                 </IngridientsGroup>
                 <IngridientsGroup header={'Соусы'}>
-                    {data.map((item) => {
-                        return(
-                            item.type === 'sauce' && <IngridientItem image={item.image} price={item.price} name={item.name}/>
-                        )
-                        
-                    })}
+                    {data.map((item) => (item.type === 'sauce' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
                 </IngridientsGroup>
                 <IngridientsGroup header={'Начинки'}>
-                    {data.map((item) => {
-                        return(
-                            item.type === 'main' && <IngridientItem image={item.image} price={item.price} name={item.name}/>
-                        )
-                        
-                    })}
+                    {data.map((item) => (item.type === 'main' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
                 </IngridientsGroup>
             </div>
         </section>
