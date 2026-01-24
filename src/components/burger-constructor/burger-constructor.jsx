@@ -4,8 +4,10 @@ import data from '../../data.json';
 
 import styles from './burger-constructor.module.css';
 
-function BurgerConstructor () {
+function BurgerConstructor ({data}) {
+
     const [current, setCurrent] = React.useState('buns');
+
     return (
       <div className={styles.container}> 
         <div className={styles.burger}>

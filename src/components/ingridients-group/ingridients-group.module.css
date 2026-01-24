@@ -1,15 +1,16 @@
-.ingridientsGroup:first-of-type {
-    margin-top: 40px;
-}
 
 .ingridientsGroupList {
     display: flex;
     flex-wrap: wrap;
-    padding: 24px 16px 8px;
-    /* gap: 24px; */
+    padding: 24px 16px 40px;
     justify-content: space-between;
     list-style-type: none;
 }
+
+.ingridientsGroup:last-of-type > .ingridientsGroupList {
+    padding-bottom: 0;
+}
+
 
 .ingridientsGroupHeading {
     background-color: darkolivegreen;

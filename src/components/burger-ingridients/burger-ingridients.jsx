@@ -2,16 +2,33 @@ import React from 'react';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import IngridientsGroup from '../ingridients-group/ingridients-group';
 import IngridientItem from '../ingridient-item/ingridient-item';
-import data from '../../data.json';
 
 import styles from './burger-ingridients.module.css';
 
-function BurgerIngridients () {
+function BurgerIngridients ({data}) {
     const [current, setCurrent] = React.useState('buns');
 
     const bunsRef = React.useRef(null);
     const saucesRef = React.useRef(null);
     const fillingsRef = React.useRef(null);
+
+    const contentRef = React.useRef(null);
+
+    const handleScroll = () => {
+        const containerTop = contentRef.current.getBoundingClientRect().top;
+
+        const bunsDelta = Math.abs(containerTop - bunsRef.current.getBoundingClientRect().top);
+        const saucesDelta = Math.abs(containerTop - saucesRef.current.getBoundingClientRect().top);
+        const fillingsDelta = Math.abs(containerTop - fillingsRef.current.getBoundingClientRect().top);
+
+        if (bunsDelta < saucesDelta && bunsDelta < fillingsDelta) {
+            setCurrent('buns');
+        } else if (saucesDelta < fillingsDelta) {
+            setCurrent('sauces');
+        } else {
+            setCurrent('fillings');
+        }
+    };
 
     const onTabClick = (tab) => {
         setCurrent(tab);
@@ -39,16 +56,26 @@ function BurgerIngridients () {
                     Начинки
                 </Tab>
             </div>
-            <div className={styles.content}>
+            <div className={styles.content} ref={contentRef} onScroll={handleScroll}>
+
                 <IngridientsGroup header={'Булки'} ref={bunsRef}>
-                    {data.map((item) => (item.type === 'bun' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
+                    {data.filter(item => item.type === 'bun').map(item => (
+                        <IngridientItem key={item._id} {...item} />
+                    ))}
                 </IngridientsGroup>
+
                 <IngridientsGroup header={'Соусы'} ref={saucesRef}>
-                    {data.map((item) => (item.type === 'sauce' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
+                    {data.filter(item => item.type === 'sauce').map(item => (
+                        <IngridientItem key={item._id} {...item} />
+                    ))}
                 </IngridientsGroup>
+
                 <IngridientsGroup header={'Начинки'} ref={fillingsRef}>
-                    {data.map((item) => (item.type === 'main' && <IngridientItem image={item.image} price={item.price} name={item.name}/>))}
+                    {data.filter(item => item.type === 'main').map(item => (
+                        <IngridientItem key={item._id} {...item} />
+                    ))}
                 </IngridientsGroup>
+                
             </div>
         </section>
     )

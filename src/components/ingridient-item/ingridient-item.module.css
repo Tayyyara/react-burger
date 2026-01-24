@@ -1,13 +1,21 @@
 .ingridient {
     display: flex;
     flex-direction: column;
-    /* justify-content: flex-start; */
     align-items: center;
     gap: 8px;
     width: 272px;
     height: 208px;
     background-color: darkslategray;
     margin-bottom: 32px;
+    position: relative;
+}
+
+.ingridient:last-of-type {
+    margin-bottom: 0;
+}
+
+.ingridient:nth-last-of-type(2) {
+    margin-bottom: 0;
 }
 
 .price {
@@ -15,4 +23,8 @@
     justify-content: center;
     align-items: center;
     gap: 8px;
+}
+
+.name {
+    text-align: center;
 }
