@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
-import data from '../../data.json';
+import OrderDetails from '../order-details/order-details';
 
 import styles from './burger-constructor.module.css';
 
 function BurgerConstructor ({data}) {
 
-    const [current, setCurrent] = React.useState('buns');
+    const [current, setCurrent] = useState('buns');
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleClick = () => {
+      setIsOpen(true);
+    }
 
     return (
       <div className={styles.container}> 
@@ -14,8 +19,8 @@ function BurgerConstructor ({data}) {
           <ConstructorElement
             type="top"
             isLocked={true}
-            text="Краторная булка N-200i (верх)"
-            price={200}
+            text={data[0].name + ' (верх)'}
+            price={data[0].price}
             thumbnail={data[0].image}
           />
 
@@ -23,57 +28,49 @@ function BurgerConstructor ({data}) {
             <li className={styles.constructorElementItem}>
             <DragIcon type="primary" />
             <ConstructorElement
-              text="Краторная булка N-200i (верх)"
-              price={50}
-              thumbnail={data[0].image}
+              text={data[8].name}
+              price={data[8].price}
+              thumbnail={data[8].image}
             />
             </li>
             <li className={styles.constructorElementItem}>
               <DragIcon type="primary" />
               <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
+                text={data[5].name}
+                price={data[5].price}
+                thumbnail={data[5].image}
               />
             </li>
             <li className={styles.constructorElementItem}>
               <DragIcon type="primary" />
               <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
+                text={data[11].name}
+                price={data[11].price}
+                thumbnail={data[11].image}
               />
             </li>
             <li className={styles.constructorElementItem}>
               <DragIcon type="primary" />
               <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
+                text={data[10].name}
+                price={data[10].price}
+                thumbnail={data[10].image}
               />
             </li>
             <li className={styles.constructorElementItem}>
               <DragIcon type="primary" />
               <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
+                text={data[10].name}
+                price={data[10].price}
+                thumbnail={data[10].image}
               />
             </li>
             <li className={styles.constructorElementItem}>
               <DragIcon type="primary" />
               <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
-              />
-            </li>
-            <li className={styles.constructorElementItem}>
-              <DragIcon type="primary" />
-              <ConstructorElement
-                text="Краторная булка N-200i (верх)"
-                price={50}
-                thumbnail={data[0].image}
+                text={data[3].name}
+                price={data[12].price}
+                thumbnail={data[12].image}
               />
             </li>
           </ul>
@@ -81,8 +78,8 @@ function BurgerConstructor ({data}) {
           <ConstructorElement
             type="bottom"
             isLocked={true}
-            text="Краторная булка N-200i (низ)"
-            price={200}
+            text={data[0].name + ' (низ)'}
+            price={data[0].price}
             thumbnail={data[0].image}
           />
         </div>
@@ -91,10 +88,12 @@ function BurgerConstructor ({data}) {
             <span className="text text_type_digits-medium">610</span>
             <CurrencyIcon type="primary" className={styles.icon}/>
           </div>
-          <Button htmlType="button" type="primary" size="large">
+          <Button htmlType="button" type="primary" size="large" onClick={handleClick}>
             Оформить заказ
           </Button>
         </div>
+
+        <OrderDetails isOpen={isOpen} setIsOpen={setIsOpen} orderNumber={'034536'}/>
       </div>
     )
 } 

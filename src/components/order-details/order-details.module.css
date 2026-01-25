@@ -1,0 +1,24 @@
+.modalContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+
+.number {
+    margin-top: 15px;
+    margin-bottom: 22px;
+    text-shadow: 0 0 16px rgb(51, 51, 255, 0.25);
+    text-shadow: 0 0 8px rgb(51, 51, 255, 0.25);
+    text-shadow: 0 4px 32px rgb(51, 51, 255, 0.5);
+}
+
+.image {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.secondary {
+    color: #8585ad;
+}
