@@ -20,7 +20,6 @@
 .mainHeading {
   display: block;
   text-align: left;
-  background-color: darkcyan;
 }
 
 .content {
@@ -29,11 +28,3 @@
   justify-content: space-between;
   color: #f2f2f3;
 }
-
-.block {
-  display: block;
-  width: 600px;
-  background-color: orange;
-  border: 2px solid orange;
-}
-

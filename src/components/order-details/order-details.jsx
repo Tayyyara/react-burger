@@ -1,6 +1,7 @@
 import styles from './order-details.module.css';
 import Modal from '../modal/modal';
 import doneImage from '../../images/done.png';
+import PropTypes from 'prop-types';
 
 const OrderDetails = ({isOpen, setIsOpen, orderNumber}) => {
 
@@ -16,5 +17,11 @@ const OrderDetails = ({isOpen, setIsOpen, orderNumber}) => {
     </Modal>
   )
 }
+
+OrderDetails.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  orderNumber: PropTypes.string.isRequired
+};
 
 export default OrderDetails;

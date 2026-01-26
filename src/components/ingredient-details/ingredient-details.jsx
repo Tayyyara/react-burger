@@ -1,12 +1,13 @@
 import styles from './ingredient-details.module.css';
 import Modal from '../modal/modal';
+import PropTypes from 'prop-types';
 
 const IngredientDetails = ({isOpen, setIsOpen, image, name, calories, proteins, fat, carbohydrates}) => {
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader='Детали ингредиента'>
       <div className={styles.modalContent}>
-        <img src={image} alt={name} width={480} />
+        <img src={image} alt={name} />
         <p className="text text_type_main-medium">{name}</p>
         <ul className={styles.energyValueList}>
           <li className={styles.energyValueItem}>
@@ -30,5 +31,17 @@ const IngredientDetails = ({isOpen, setIsOpen, image, name, calories, proteins, 
     </Modal>
   )
 };
+
+IngredientDetails.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  calories: PropTypes.number.isRequired,
+  proteins: PropTypes.number.isRequired,
+  fat: PropTypes.number.isRequired,
+  carbohydrates: PropTypes.number.isRequired
+}; 
+
 
 export default IngredientDetails;

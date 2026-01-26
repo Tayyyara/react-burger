@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './modal.module.css';
 import { CloseIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import ModalOverlay from '../modal-overlay/modal-overlay';
+import PropTypes from 'prop-types';
 
 const Modal = ({ children, isOpen, setIsOpen, modalHeader='' }) => {
 
   const modalRoot = document.getElementById("root");
- 
-  const onClose = () => {
+
+  const onClose = useCallback(() => {
     setIsOpen(false);
-  }
+}, [setIsOpen]);
 
   useEffect(() => {
     const handleEscKey = (event) => {
@@ -26,7 +27,7 @@ const Modal = ({ children, isOpen, setIsOpen, modalHeader='' }) => {
     return () => {
       document.removeEventListener('keydown', handleEscKey);
     };
-  }, [isOpen]);
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
@@ -46,6 +47,13 @@ const Modal = ({ children, isOpen, setIsOpen, modalHeader='' }) => {
     </>),
     modalRoot 
   );
+};
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  setIsOpen: PropTypes.func.isRequired,
+  modalHeader: PropTypes.string
 };
 
 export default Modal;

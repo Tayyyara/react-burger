@@ -11,15 +11,39 @@
     align-items: center;
 }
 
+.navContainer {
+    flex: 1;
+}
+
 .navigation {
     display: flex;
     gap: 8px;
     padding: 0;
-    flex: 1;
+}
+
+.navigationItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 138px;
+    height: 24px;
+    padding: 16px 20px;
+    margin: 0;
+    gap: 8px;
+    cursor: pointer;
+    color: #8585ad;
+}
+
+
+.navigationItem_active {
+    color: #f2f2f3;
+}
+
+.icon {
+    color: currentColor;
 }
 
 .logo {
-    border: 2px solid green;
     margin: auto;
 }
 
@@ -28,3 +52,4 @@
     justify-content: end;
     flex: 1;
 }
+

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import OrderDetails from '../order-details/order-details';
+import PropTypes from 'prop-types';
 
 import styles from './burger-constructor.module.css';
 
 function BurgerConstructor ({data}) {
 
-    const [current, setCurrent] = useState('buns');
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
@@ -97,5 +97,11 @@ function BurgerConstructor ({data}) {
       </div>
     )
 } 
+
+BurgerConstructor.propTypes = {
+  name: PropTypes.string,
+  price: PropTypes.number,
+  image: PropTypes.string
+}; 
 
 export default BurgerConstructor;

@@ -1,5 +1,6 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import styles from './ingridients-group.module.css';
+import PropTypes from 'prop-types';
 
 const IngridientsGroup = forwardRef(({header, children}, ref) => {
     return (
@@ -12,5 +13,10 @@ const IngridientsGroup = forwardRef(({header, children}, ref) => {
         </div>        
     )
 });
+
+IngridientsGroup.propTypes = {
+  header: PropTypes.string.isRequired,
+  children: PropTypes.node,
+}; 
 
 export default IngridientsGroup;

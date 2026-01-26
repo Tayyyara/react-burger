@@ -2,7 +2,6 @@
     display: block;
     width: 600px;
     min-height: 800px;
-    background-color: darkslategray;
 }
 
 .container {
@@ -13,7 +12,6 @@
     gap: 40px;
     padding: 0 16px 16px;
     height: calc(100vh - 208px);
-    background-color: darkslategray;
 }
 
 .burger {

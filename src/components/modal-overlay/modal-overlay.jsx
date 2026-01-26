@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom';
 import styles from './modal-overlay.module.css';
+import PropTypes from 'prop-types';
 
 const ModalOverlay = ({setIsOpen}) => {
 
@@ -14,6 +15,10 @@ const ModalOverlay = ({setIsOpen}) => {
     </div>,
     modalRoot 
   );
+};
+
+ModalOverlay.propTypes = {
+  setIsOpen: PropTypes.func.isRequired
 };
 
 export default ModalOverlay;

@@ -1,18 +1,19 @@
-import React from 'react';
+import { useState, useRef } from 'react';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import IngridientsGroup from '../ingridients-group/ingridients-group';
 import IngridientItem from '../ingridient-item/ingridient-item';
+import PropTypes from 'prop-types';
 
 import styles from './burger-ingridients.module.css';
 
 function BurgerIngridients ({data}) {
-    const [current, setCurrent] = React.useState('buns');
+    const [current, setCurrent] = useState('buns');
 
-    const bunsRef = React.useRef(null);
-    const saucesRef = React.useRef(null);
-    const fillingsRef = React.useRef(null);
+    const bunsRef = useRef(null);
+    const saucesRef = useRef(null);
+    const fillingsRef = useRef(null);
 
-    const contentRef = React.useRef(null);
+    const contentRef = useRef(null);
 
     const handleScroll = () => {
         const containerTop = contentRef.current.getBoundingClientRect().top;
@@ -80,5 +81,24 @@ function BurgerIngridients ({data}) {
         </section>
     )
 } 
+
+const ingredientPropType = PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    proteins: PropTypes.number.isRequired,
+    fat: PropTypes.number.isRequired,
+    carbohydrates: PropTypes.number.isRequired,
+    calories: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    image_mobile: PropTypes.string,
+    image_large: PropTypes.string.isRequired,
+    __v: PropTypes.number
+});
+
+BurgerIngridients.propTypes = {
+    data: PropTypes.arrayOf(ingredientPropType).isRequired
+};
 
 export default BurgerIngridients;

@@ -2,13 +2,14 @@ import { useState } from 'react';
 import styles from './ingridient-item.module.css';
 import { CurrencyIcon, Counter } from '@ya.praktikum/react-developer-burger-ui-components';
 import IngredientDetails from '../ingredient-details/ingredient-details';
+import PropTypes from 'prop-types';
 
 function IngridientItem (props) {
+
     const [isOpen, setIsOpen] = useState(false);
     const handleClick = () => {
       setIsOpen(true);
     }
-
 
     return (
         <>
@@ -24,7 +25,7 @@ function IngridientItem (props) {
         <IngredientDetails 
             isOpen={isOpen} 
             setIsOpen={setIsOpen} 
-            image={props.image}
+            image={props.image_large}
             name={props.name}
             calories={props.calories}
             proteins={props.proteins}
@@ -35,5 +36,16 @@ function IngridientItem (props) {
               
     )
 } 
+
+IngridientItem.propTypes = {
+    count: PropTypes.number,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    calories: PropTypes.number.isRequired,
+    proteins: PropTypes.number.isRequired,
+    fat: PropTypes.number.isRequired,
+    carbohydrates: PropTypes.number.isRequired
+}; 
 
 export default IngridientItem;
