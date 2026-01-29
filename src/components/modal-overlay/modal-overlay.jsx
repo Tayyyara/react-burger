@@ -2,13 +2,9 @@ import ReactDOM from 'react-dom';
 import styles from './modal-overlay.module.css';
 import PropTypes from 'prop-types';
 
-const ModalOverlay = ({setIsOpen}) => {
+const ModalOverlay = ({onClose}) => {
 
   const modalRoot = document.getElementById("root");
-
-  const onClose = () => {
-    setIsOpen(false);
-  }
 
   return ReactDOM.createPortal(
     <div className={styles.overlay} onClick={onClose}>
@@ -18,7 +14,7 @@ const ModalOverlay = ({setIsOpen}) => {
 };
 
 ModalOverlay.propTypes = {
-  setIsOpen: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired
 };
 
 export default ModalOverlay;

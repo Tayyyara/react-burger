@@ -8,8 +8,13 @@ import PropTypes from 'prop-types';
 function IngridientItem (props) {
 
     const [isOpen, setIsOpen] = useState(false);
+
     const handleClick = () => {
       setIsOpen(true);
+    }
+
+    const handleClose = () => {
+      setIsOpen(false);
     }
 
     return (
@@ -23,7 +28,8 @@ function IngridientItem (props) {
                 </div>
                 <p className={`${styles.name} text text_type_main-default`}>{props.name}</p>
             </li>  
-            <Modal isOpen={isOpen} setIsOpen={setIsOpen} modalHeader='Детали ингредиента'>
+
+            {isOpen && (<Modal onClose={handleClose} modalHeader='Детали ингредиента'>
                 <IngredientDetails 
                     image={props.image_large}
                     name={props.name}
@@ -32,7 +38,7 @@ function IngridientItem (props) {
                     fat={props.fat}
                     carbohydrates={props.carbohydrates}
                 />
-            </Modal>
+            </Modal>)}
         </>
               
     )

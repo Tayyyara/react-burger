@@ -14,6 +14,10 @@ function BurgerConstructor ({data}) {
       setIsOpen(true);
     }
 
+    const handleClose = () => {
+      setIsOpen(false);
+    }
+
     return (
       <div className={styles.container}> 
         <div className={styles.burger}>
@@ -94,9 +98,9 @@ function BurgerConstructor ({data}) {
           </Button>
         </div>
 
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+        {isOpen && (<Modal onClose={handleClose}>
           <OrderDetails orderNumber={'034536'}/>
-        </Modal>
+        </Modal>)}
       </div>
     )
 } 
