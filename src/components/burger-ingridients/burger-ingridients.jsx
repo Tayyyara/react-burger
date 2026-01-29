@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import IngridientsGroup from '../ingridients-group/ingridients-group';
-import IngridientItem from '../ingridient-item/ingridient-item';
+import Ingridient from '../ingridient/ingridient';
 import PropTypes from 'prop-types';
+import { ingredientPropType } from '../../utils/prop-type'
 
 import styles from './burger-ingridients.module.css';
 
@@ -60,20 +61,20 @@ function BurgerIngridients ({data}) {
             <div className={styles.content} ref={contentRef} onScroll={handleScroll}>
 
                 <IngridientsGroup header={'Булки'} ref={bunsRef}>
-                    {data.filter(item => item.type === 'bun').map(item => (
-                        <IngridientItem key={item._id} {...item} />
+                    {data.filter(ingridient => ingridient.type === 'bun').map(ingridient => (
+                        <Ingridient key={ingridient._id} ingridient={ingridient} />
                     ))}
                 </IngridientsGroup>
 
                 <IngridientsGroup header={'Соусы'} ref={saucesRef}>
-                    {data.filter(item => item.type === 'sauce').map(item => (
-                        <IngridientItem key={item._id} {...item} />
+                    {data.filter(ingridient => ingridient.type === 'sauce').map(ingridient => (
+                        <Ingridient key={ingridient._id} ingridient={ingridient} />
                     ))}
                 </IngridientsGroup>
 
                 <IngridientsGroup header={'Начинки'} ref={fillingsRef}>
-                    {data.filter(item => item.type === 'main').map(item => (
-                        <IngridientItem key={item._id} {...item} />
+                    {data.filter(ingridient => ingridient.type === 'main').map(ingridient => (
+                        <Ingridient key={ingridient._id} ingridient={ingridient} />
                     ))}
                 </IngridientsGroup>
                 
@@ -81,21 +82,6 @@ function BurgerIngridients ({data}) {
         </section>
     )
 } 
-
-const ingredientPropType = PropTypes.shape({
-    _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    proteins: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    carbohydrates: PropTypes.number.isRequired,
-    calories: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    image_mobile: PropTypes.string,
-    image_large: PropTypes.string.isRequired,
-    __v: PropTypes.number
-});
 
 BurgerIngridients.propTypes = {
     data: PropTypes.arrayOf(ingredientPropType).isRequired
