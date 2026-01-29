@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ConstructorElement, DragIcon, Button, CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
+import Modal from '../modal/modal';
 import OrderDetails from '../order-details/order-details';
 import PropTypes from 'prop-types';
 
@@ -93,7 +94,9 @@ function BurgerConstructor ({data}) {
           </Button>
         </div>
 
-        <OrderDetails isOpen={isOpen} setIsOpen={setIsOpen} orderNumber={'034536'}/>
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+          <OrderDetails orderNumber={'034536'}/>
+        </Modal>
       </div>
     )
 } 
