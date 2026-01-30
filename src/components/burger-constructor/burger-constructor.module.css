@@ -1,0 +1,81 @@
+.section {
+    display: block;
+    width: 600px;
+    min-height: 800px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: end;
+    gap: 40px;
+    padding: 0 16px 16px;
+    height: calc(100vh - 208px);
+}
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 16px;
+    flex-grow: 1;
+    min-height: 0;
+    align-items: end;
+}
+
+.constructorElementList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+    justify-content: flex-start;
+    overflow-y: auto;
+    flex-grow: 1;
+    list-style-type: none;
+    scrollbar-gutter: stable;
+    scrollbar-width: thin;
+    scrollbar-color: #8585ad #2f2f37;
+}
+
+.constructorElementList::-webkit-scrollbar {
+    width: 18px;
+}
+
+.constructorElementList::-webkit-scrollbar-track {
+    background: #2f2f37; 
+}
+
+.constructorElementList::-webkit-scrollbar-thumb {
+    background: #8585ad;
+    border-radius: 4px;
+}
+
+.constructorElementList::-webkit-scrollbar-thumb:hover {
+    background: #a2a2c2;
+}
+
+.constructorElementItem {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    width: 36px;
+    height: 36px;
+}

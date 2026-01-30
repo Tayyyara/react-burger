@@ -1,0 +1,30 @@
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 1240px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.mainHeading {
+  display: block;
+  text-align: left;
+}
+
+.content {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #f2f2f3;
+}
